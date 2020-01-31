@@ -311,7 +311,7 @@
                                         <xsd:element name="outline"  minOccurs="0" maxOccurs="1">
                                             <xsd:complexType>					    
                                                 <xsd:sequence>
-						  <xsd:choice>
+						                        <xsd:choice>
                                                     <xsd:element name="cornerRoad" minOccurs="0" maxOccurs="unbounded">
                                                         <xsd:complexType>
                                                             <xsd:sequence>
@@ -428,7 +428,7 @@
 
                 <xsd:element name="signals" minOccurs="0" maxOccurs="1">
                     <xsd:complexType>
-                        <xsd:sequence>
+                        <xsd:choice maxOccurs="unbounded">
                             <xsd:element name="signal"  minOccurs="0" maxOccurs="unbounded">
                                 <xsd:complexType>
                                     <xsd:sequence>
@@ -481,7 +481,7 @@
                             </xsd:element> <!-- end signal reference -->
                             <xsd:element name="userData" type="userData" minOccurs="0" maxOccurs="unbounded"/>
                             <xsd:element name="include"  type="include"  minOccurs="0" maxOccurs="unbounded"/>
-                        </xsd:sequence>
+                        </xsd:choice>
                     </xsd:complexType>
                 </xsd:element> <!-- end signals -->
                 
@@ -769,6 +769,9 @@
        <xsd:enumeration value="kg"/>
        <xsd:enumeration value="t"/>
        <xsd:enumeration value="%"/>
+       <xsd:enumeration value="U"/>
+       <xsd:enumeration value="10"/>
+       <xsd:enumeration value="h"/>
    </xsd:restriction>
 </xsd:simpleType>
 
@@ -835,6 +838,7 @@
    <xsd:restriction base="xsd:string">
        <xsd:enumeration value="none"/>
        <xsd:enumeration value="solid"/>
+       <xsd:enumeration value="solide"/>
        <xsd:enumeration value="broken"/>
        <xsd:enumeration value="solid solid"/>
         <xsd:enumeration value="solid broken"/>
@@ -1022,15 +1026,17 @@
    </xsd:restriction>
 </xsd:simpleType>
 
-<xsd:complexType name="userData" mixed="true">
-    <xsd:sequence>
-        <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
-    </xsd:sequence>
-    <xsd:attribute name="code"  type="xsd:string"/>
-    <xsd:attribute name="value" type="xsd:string"/>
-</xsd:complexType>
+	<xsd:complexType name="userData" mixed="true">
+		<xsd:sequence>
+			<xsd:any minOccurs="0" maxOccurs="unbounded"
+				processContents="skip" />
+		</xsd:sequence>
+		<xsd:attribute name="code" type="xsd:string" />
+		<xsd:attribute name="value" type="xsd:string" />
+		<xsd:attribute name="quality" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
 
-<xsd:complexType name="include" >
+	<xsd:complexType name="include" >
     <xsd:attribute name="file" type="xsd:string"/>
 </xsd:complexType>
 
@@ -1116,12 +1122,25 @@
                             <xsd:sequence>
                                 <xsd:element name="line" minOccurs="1" maxOccurs="unbounded">
                                     <xsd:complexType>
-                                        <xsd:attribute name="length"  type="xsd:double"/>
-                                        <xsd:attribute name="space"   type="xsd:double"/>
-                                        <xsd:attribute name="tOffset" type="xsd:double"/>
-                                        <xsd:attribute name="sOffset" type="xsd:double"/>
-                                        <xsd:attribute name="rule"    type="rule"/>
-                                        <xsd:attribute name="width"   type="xsd:double"/>
+                                    	<xsd:sequence maxOccurs="1" minOccurs="0">
+                                    		<xsd:element name="userData"
+                                    			type="userData" minOccurs="0"
+                                    			maxOccurs="1">
+                                    		</xsd:element>
+
+                                    	</xsd:sequence>
+                                    	<xsd:attribute name="length"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="space"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="tOffset"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="sOffset"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="rule"
+                                    		type="rule" />
+                                    	<xsd:attribute name="width"
+                                    		type="xsd:double" />
                                     </xsd:complexType>
                                 </xsd:element>
                             </xsd:sequence>
@@ -1245,12 +1264,24 @@
                             <xsd:sequence>
                                 <xsd:element name="line" minOccurs="1" maxOccurs="unbounded">
                                     <xsd:complexType>
-                                        <xsd:attribute name="length"  type="xsd:double"/>
-                                        <xsd:attribute name="space"   type="xsd:double"/>
-                                        <xsd:attribute name="tOffset" type="xsd:double"/>
-                                        <xsd:attribute name="sOffset" type="xsd:double"/>
-                                        <xsd:attribute name="rule"    type="rule"/>
-					<xsd:attribute name="width"   type="xsd:double"/>
+                                    	<xsd:sequence>
+                                    		<xsd:element
+                                    			name="userData"
+                                    			type="userData" minOccurs="0" maxOccurs="unbounded">
+                                    		</xsd:element>
+                                    	</xsd:sequence>
+                                    	<xsd:attribute name="length"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="space"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="tOffset"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="sOffset"
+                                    		type="xsd:double" />
+                                    	<xsd:attribute name="rule"
+                                    		type="rule" />
+                                    	<xsd:attribute name="width"
+                                    		type="xsd:double" />
                                     </xsd:complexType>
                                 </xsd:element>
                             </xsd:sequence>
