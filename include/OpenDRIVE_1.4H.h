@@ -305,6 +305,7 @@ class controller1;
 class junctionReference;
 class platform;
 class line;
+class line1;
 class predecessor1;
 class successor1;
 class neighbor;
@@ -326,7 +327,7 @@ class CRG;
 class switch_;
 class laneLink;
 class segment;
-class line1;
+class line2;
 class spiral;
 class arc;
 class poly3;
@@ -687,7 +688,10 @@ class unit: public ::xml_schema::string
     km_h,
     kg,
     t,
-    cxx_
+    cxx_,
+    U,
+    cxx_10,
+    h
   };
 
   unit (value v);
@@ -733,8 +737,8 @@ class unit: public ::xml_schema::string
   _xsd_unit_convert () const;
 
   public:
-  static const char* const _xsd_unit_literals_[10];
-  static const value _xsd_unit_indexes_[10];
+  static const char* const _xsd_unit_literals_[13];
+  static const value _xsd_unit_indexes_[13];
 };
 
 class pRange: public ::xml_schema::string
@@ -988,6 +992,7 @@ class roadmarkType: public ::xml_schema::string
   {
     none,
     solid,
+    solide,
     broken,
     solid_solid,
     solid_broken,
@@ -1041,8 +1046,8 @@ class roadmarkType: public ::xml_schema::string
   _xsd_roadmarkType_convert () const;
 
   public:
-  static const char* const _xsd_roadmarkType_literals_[10];
-  static const value _xsd_roadmarkType_indexes_[10];
+  static const char* const _xsd_roadmarkType_literals_[11];
+  static const value _xsd_roadmarkType_indexes_[11];
 };
 
 class weight: public ::xml_schema::string
@@ -2121,6 +2126,27 @@ class userData: public ::xml_schema::type
   void
   value (::std::unique_ptr< value_type > p);
 
+  // quality
+  //
+  typedef ::xml_schema::string quality_type;
+  typedef ::xsd::cxx::tree::optional< quality_type > quality_optional;
+  typedef ::xsd::cxx::tree::traits< quality_type, char > quality_traits;
+
+  const quality_optional&
+  quality () const;
+
+  quality_optional&
+  quality ();
+
+  void
+  quality (const quality_type& x);
+
+  void
+  quality (const quality_optional& x);
+
+  void
+  quality (::std::unique_ptr< quality_type > p);
+
   // Constructors.
   //
   userData ();
@@ -2153,6 +2179,7 @@ class userData: public ::xml_schema::type
   protected:
   code_optional code_;
   value_optional value_;
+  quality_optional quality_;
 };
 
 class include: public ::xml_schema::type
@@ -6678,7 +6705,7 @@ class type1: public ::xml_schema::type
   public:
   // line
   //
-  typedef ::line line_type;
+  typedef ::line1 line_type;
   typedef ::xsd::cxx::tree::sequence< line_type > line_sequence;
   typedef line_sequence::iterator line_iterator;
   typedef line_sequence::const_iterator line_const_iterator;
@@ -8498,6 +8525,27 @@ class platform: public ::xml_schema::type
 class line: public ::xml_schema::type
 {
   public:
+  // userData
+  //
+  typedef ::userData userData_type;
+  typedef ::xsd::cxx::tree::optional< userData_type > userData_optional;
+  typedef ::xsd::cxx::tree::traits< userData_type, char > userData_traits;
+
+  const userData_optional&
+  userData () const;
+
+  userData_optional&
+  userData ();
+
+  void
+  userData (const userData_type& x);
+
+  void
+  userData (const userData_optional& x);
+
+  void
+  userData (::std::unique_ptr< userData_type > p);
+
   // length
   //
   typedef ::xml_schema::double_ length_type;
@@ -8639,6 +8687,177 @@ class line: public ::xml_schema::type
          ::xml_schema::flags);
 
   protected:
+  userData_optional userData_;
+  length_optional length_;
+  space_optional space_;
+  tOffset_optional tOffset_;
+  sOffset_optional sOffset_;
+  rule_optional rule_;
+  width_optional width_;
+};
+
+class line1: public ::xml_schema::type
+{
+  public:
+  // userData
+  //
+  typedef ::userData userData_type;
+  typedef ::xsd::cxx::tree::sequence< userData_type > userData_sequence;
+  typedef userData_sequence::iterator userData_iterator;
+  typedef userData_sequence::const_iterator userData_const_iterator;
+  typedef ::xsd::cxx::tree::traits< userData_type, char > userData_traits;
+
+  const userData_sequence&
+  userData () const;
+
+  userData_sequence&
+  userData ();
+
+  void
+  userData (const userData_sequence& s);
+
+  // length
+  //
+  typedef ::xml_schema::double_ length_type;
+  typedef ::xsd::cxx::tree::optional< length_type > length_optional;
+  typedef ::xsd::cxx::tree::traits< length_type, char, ::xsd::cxx::tree::schema_type::double_ > length_traits;
+
+  const length_optional&
+  length () const;
+
+  length_optional&
+  length ();
+
+  void
+  length (const length_type& x);
+
+  void
+  length (const length_optional& x);
+
+  // space
+  //
+  typedef ::xml_schema::double_ space_type;
+  typedef ::xsd::cxx::tree::optional< space_type > space_optional;
+  typedef ::xsd::cxx::tree::traits< space_type, char, ::xsd::cxx::tree::schema_type::double_ > space_traits;
+
+  const space_optional&
+  space () const;
+
+  space_optional&
+  space ();
+
+  void
+  space (const space_type& x);
+
+  void
+  space (const space_optional& x);
+
+  // tOffset
+  //
+  typedef ::xml_schema::double_ tOffset_type;
+  typedef ::xsd::cxx::tree::optional< tOffset_type > tOffset_optional;
+  typedef ::xsd::cxx::tree::traits< tOffset_type, char, ::xsd::cxx::tree::schema_type::double_ > tOffset_traits;
+
+  const tOffset_optional&
+  tOffset () const;
+
+  tOffset_optional&
+  tOffset ();
+
+  void
+  tOffset (const tOffset_type& x);
+
+  void
+  tOffset (const tOffset_optional& x);
+
+  // sOffset
+  //
+  typedef ::xml_schema::double_ sOffset_type;
+  typedef ::xsd::cxx::tree::optional< sOffset_type > sOffset_optional;
+  typedef ::xsd::cxx::tree::traits< sOffset_type, char, ::xsd::cxx::tree::schema_type::double_ > sOffset_traits;
+
+  const sOffset_optional&
+  sOffset () const;
+
+  sOffset_optional&
+  sOffset ();
+
+  void
+  sOffset (const sOffset_type& x);
+
+  void
+  sOffset (const sOffset_optional& x);
+
+  // rule
+  //
+  typedef ::rule rule_type;
+  typedef ::xsd::cxx::tree::optional< rule_type > rule_optional;
+  typedef ::xsd::cxx::tree::traits< rule_type, char > rule_traits;
+
+  const rule_optional&
+  rule () const;
+
+  rule_optional&
+  rule ();
+
+  void
+  rule (const rule_type& x);
+
+  void
+  rule (const rule_optional& x);
+
+  void
+  rule (::std::unique_ptr< rule_type > p);
+
+  // width
+  //
+  typedef ::xml_schema::double_ width_type;
+  typedef ::xsd::cxx::tree::optional< width_type > width_optional;
+  typedef ::xsd::cxx::tree::traits< width_type, char, ::xsd::cxx::tree::schema_type::double_ > width_traits;
+
+  const width_optional&
+  width () const;
+
+  width_optional&
+  width ();
+
+  void
+  width (const width_type& x);
+
+  void
+  width (const width_optional& x);
+
+  // Constructors.
+  //
+  line1 ();
+
+  line1 (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  line1 (const line1& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual line1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  line1&
+  operator= (const line1& x);
+
+  virtual 
+  ~line1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  userData_sequence userData_;
   length_optional length_;
   space_optional space_;
   tOffset_optional tOffset_;
@@ -9034,7 +9253,7 @@ class geometry: public ::xml_schema::type
   public:
   // line
   //
-  typedef ::line1 line_type;
+  typedef ::line2 line_type;
   typedef ::xsd::cxx::tree::optional< line_type > line_optional;
   typedef ::xsd::cxx::tree::traits< line_type, char > line_traits;
 
@@ -12855,7 +13074,7 @@ class segment: public ::xml_schema::type
   side_optional side_;
 };
 
-class line1: public ::xml_schema::type
+class line2: public ::xml_schema::type
 {
   public:
   // userData
@@ -12894,25 +13113,25 @@ class line1: public ::xml_schema::type
 
   // Constructors.
   //
-  line1 ();
+  line2 ();
 
-  line1 (const ::xercesc::DOMElement& e,
+  line2 (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
          ::xml_schema::container* c = 0);
 
-  line1 (const line1& x,
+  line2 (const line2& x,
          ::xml_schema::flags f = 0,
          ::xml_schema::container* c = 0);
 
-  virtual line1*
+  virtual line2*
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  line1&
-  operator= (const line1& x);
+  line2&
+  operator= (const line2& x);
 
   virtual 
-  ~line1 ();
+  ~line2 ();
 
   // Implementation.
   //

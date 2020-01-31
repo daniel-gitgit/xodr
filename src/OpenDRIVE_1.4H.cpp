@@ -1431,6 +1431,36 @@ value (::std::unique_ptr< value_type > x)
   this->value_.set (std::move (x));
 }
 
+const userData::quality_optional& userData::
+quality () const
+{
+  return this->quality_;
+}
+
+userData::quality_optional& userData::
+quality ()
+{
+  return this->quality_;
+}
+
+void userData::
+quality (const quality_type& x)
+{
+  this->quality_.set (x);
+}
+
+void userData::
+quality (const quality_optional& x)
+{
+  this->quality_ = x;
+}
+
+void userData::
+quality (::std::unique_ptr< quality_type > x)
+{
+  this->quality_.set (std::move (x));
+}
+
 
 // include
 // 
@@ -7208,6 +7238,36 @@ id (::std::unique_ptr< id_type > x)
 // line
 // 
 
+const line::userData_optional& line::
+userData () const
+{
+  return this->userData_;
+}
+
+line::userData_optional& line::
+userData ()
+{
+  return this->userData_;
+}
+
+void line::
+userData (const userData_type& x)
+{
+  this->userData_.set (x);
+}
+
+void line::
+userData (const userData_optional& x)
+{
+  this->userData_ = x;
+}
+
+void line::
+userData (::std::unique_ptr< userData_type > x)
+{
+  this->userData_.set (std::move (x));
+}
+
 const line::length_optional& line::
 length () const
 {
@@ -7353,6 +7413,178 @@ width (const width_type& x)
 }
 
 void line::
+width (const width_optional& x)
+{
+  this->width_ = x;
+}
+
+
+// line1
+// 
+
+const line1::userData_sequence& line1::
+userData () const
+{
+  return this->userData_;
+}
+
+line1::userData_sequence& line1::
+userData ()
+{
+  return this->userData_;
+}
+
+void line1::
+userData (const userData_sequence& s)
+{
+  this->userData_ = s;
+}
+
+const line1::length_optional& line1::
+length () const
+{
+  return this->length_;
+}
+
+line1::length_optional& line1::
+length ()
+{
+  return this->length_;
+}
+
+void line1::
+length (const length_type& x)
+{
+  this->length_.set (x);
+}
+
+void line1::
+length (const length_optional& x)
+{
+  this->length_ = x;
+}
+
+const line1::space_optional& line1::
+space () const
+{
+  return this->space_;
+}
+
+line1::space_optional& line1::
+space ()
+{
+  return this->space_;
+}
+
+void line1::
+space (const space_type& x)
+{
+  this->space_.set (x);
+}
+
+void line1::
+space (const space_optional& x)
+{
+  this->space_ = x;
+}
+
+const line1::tOffset_optional& line1::
+tOffset () const
+{
+  return this->tOffset_;
+}
+
+line1::tOffset_optional& line1::
+tOffset ()
+{
+  return this->tOffset_;
+}
+
+void line1::
+tOffset (const tOffset_type& x)
+{
+  this->tOffset_.set (x);
+}
+
+void line1::
+tOffset (const tOffset_optional& x)
+{
+  this->tOffset_ = x;
+}
+
+const line1::sOffset_optional& line1::
+sOffset () const
+{
+  return this->sOffset_;
+}
+
+line1::sOffset_optional& line1::
+sOffset ()
+{
+  return this->sOffset_;
+}
+
+void line1::
+sOffset (const sOffset_type& x)
+{
+  this->sOffset_.set (x);
+}
+
+void line1::
+sOffset (const sOffset_optional& x)
+{
+  this->sOffset_ = x;
+}
+
+const line1::rule_optional& line1::
+rule () const
+{
+  return this->rule_;
+}
+
+line1::rule_optional& line1::
+rule ()
+{
+  return this->rule_;
+}
+
+void line1::
+rule (const rule_type& x)
+{
+  this->rule_.set (x);
+}
+
+void line1::
+rule (const rule_optional& x)
+{
+  this->rule_ = x;
+}
+
+void line1::
+rule (::std::unique_ptr< rule_type > x)
+{
+  this->rule_.set (std::move (x));
+}
+
+const line1::width_optional& line1::
+width () const
+{
+  return this->width_;
+}
+
+line1::width_optional& line1::
+width ()
+{
+  return this->width_;
+}
+
+void line1::
+width (const width_type& x)
+{
+  this->width_.set (x);
+}
+
+void line1::
 width (const width_optional& x)
 {
   this->width_ = x;
@@ -11751,40 +11983,40 @@ side (::std::unique_ptr< side_type > x)
 }
 
 
-// line1
+// line2
 // 
 
-const line1::userData_sequence& line1::
+const line2::userData_sequence& line2::
 userData () const
 {
   return this->userData_;
 }
 
-line1::userData_sequence& line1::
+line2::userData_sequence& line2::
 userData ()
 {
   return this->userData_;
 }
 
-void line1::
+void line2::
 userData (const userData_sequence& s)
 {
   this->userData_ = s;
 }
 
-const line1::include_sequence& line1::
+const line2::include_sequence& line2::
 include () const
 {
   return this->include_;
 }
 
-line1::include_sequence& line1::
+line2::include_sequence& line2::
 include ()
 {
   return this->include_;
 }
 
-void line1::
+void line2::
 include (const include_sequence& s)
 {
   this->include_ = s;
@@ -14078,11 +14310,11 @@ _xsd_unit_convert () const
   ::xsd::cxx::tree::enum_comparator< char > c (_xsd_unit_literals_);
   const value* i (::std::lower_bound (
                     _xsd_unit_indexes_,
-                    _xsd_unit_indexes_ + 10,
+                    _xsd_unit_indexes_ + 13,
                     *this,
                     c));
 
-  if (i == _xsd_unit_indexes_ + 10 || _xsd_unit_literals_[*i] != *this)
+  if (i == _xsd_unit_indexes_ + 13 || _xsd_unit_literals_[*i] != *this)
   {
     throw ::xsd::cxx::tree::unexpected_enumerator < char > (*this);
   }
@@ -14091,7 +14323,7 @@ _xsd_unit_convert () const
 }
 
 const char* const unit::
-_xsd_unit_literals_[10] =
+_xsd_unit_literals_[13] =
 {
   "m",
   "km",
@@ -14102,14 +14334,20 @@ _xsd_unit_literals_[10] =
   "km/h",
   "kg",
   "t",
-  "%"
+  "%",
+  "U",
+  "10",
+  "h"
 };
 
 const unit::value unit::
-_xsd_unit_indexes_[10] =
+_xsd_unit_indexes_[13] =
 {
   ::unit::cxx_,
+  ::unit::cxx_10,
+  ::unit::U,
   ::unit::ft,
+  ::unit::h,
   ::unit::kg,
   ::unit::km,
   ::unit::km_h,
@@ -14484,11 +14722,11 @@ _xsd_roadmarkType_convert () const
   ::xsd::cxx::tree::enum_comparator< char > c (_xsd_roadmarkType_literals_);
   const value* i (::std::lower_bound (
                     _xsd_roadmarkType_indexes_,
-                    _xsd_roadmarkType_indexes_ + 10,
+                    _xsd_roadmarkType_indexes_ + 11,
                     *this,
                     c));
 
-  if (i == _xsd_roadmarkType_indexes_ + 10 || _xsd_roadmarkType_literals_[*i] != *this)
+  if (i == _xsd_roadmarkType_indexes_ + 11 || _xsd_roadmarkType_literals_[*i] != *this)
   {
     throw ::xsd::cxx::tree::unexpected_enumerator < char > (*this);
   }
@@ -14497,10 +14735,11 @@ _xsd_roadmarkType_convert () const
 }
 
 const char* const roadmarkType::
-_xsd_roadmarkType_literals_[10] =
+_xsd_roadmarkType_literals_[11] =
 {
   "none",
   "solid",
+  "solide",
   "broken",
   "solid solid",
   "solid broken",
@@ -14512,7 +14751,7 @@ _xsd_roadmarkType_literals_[10] =
 };
 
 const roadmarkType::value roadmarkType::
-_xsd_roadmarkType_indexes_[10] =
+_xsd_roadmarkType_indexes_[11] =
 {
   ::roadmarkType::botts_dots,
   ::roadmarkType::broken,
@@ -14523,7 +14762,8 @@ _xsd_roadmarkType_indexes_[10] =
   ::roadmarkType::none,
   ::roadmarkType::solid,
   ::roadmarkType::solid_broken,
-  ::roadmarkType::solid_solid
+  ::roadmarkType::solid_solid,
+  ::roadmarkType::solide
 };
 
 // weight
@@ -15839,7 +16079,8 @@ userData::
 userData ()
 : ::xml_schema::type (),
   code_ (this),
-  value_ (this)
+  value_ (this),
+  quality_ (this)
 {
 }
 
@@ -15849,7 +16090,8 @@ userData (const userData& x,
           ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
   code_ (x.code_, f, this),
-  value_ (x.value_, f, this)
+  value_ (x.value_, f, this),
+  quality_ (x.quality_, f, this)
 {
 }
 
@@ -15859,7 +16101,8 @@ userData (const ::xercesc::DOMElement& e,
           ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
   code_ (this),
-  value_ (this)
+  value_ (this),
+  quality_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
@@ -15898,6 +16141,12 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       this->value_.set (value_traits::create (i, f, this));
       continue;
     }
+
+    if (n.name () == "quality" && n.namespace_ ().empty ())
+    {
+      this->quality_.set (quality_traits::create (i, f, this));
+      continue;
+    }
   }
 }
 
@@ -15916,6 +16165,7 @@ operator= (const userData& x)
     static_cast< ::xml_schema::type& > (*this) = x;
     this->code_ = x.code_;
     this->value_ = x.value_;
+    this->quality_ = x.quality_;
   }
 
   return *this;
@@ -22445,6 +22695,7 @@ platform::
 line::
 line ()
 : ::xml_schema::type (),
+  userData_ (this),
   length_ (this),
   space_ (this),
   tOffset_ (this),
@@ -22459,6 +22710,7 @@ line (const line& x,
       ::xml_schema::flags f,
       ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
+  userData_ (x.userData_, f, this),
   length_ (x.length_, f, this),
   space_ (x.space_, f, this),
   tOffset_ (x.tOffset_, f, this),
@@ -22473,6 +22725,7 @@ line (const ::xercesc::DOMElement& e,
       ::xml_schema::flags f,
       ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  userData_ (this),
   length_ (this),
   space_ (this),
   tOffset_ (this),
@@ -22482,7 +22735,7 @@ line (const ::xercesc::DOMElement& e,
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, false, false, true);
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
     this->parse (p, f);
   }
 }
@@ -22491,6 +22744,29 @@ void line::
 parse (::xsd::cxx::xml::dom::parser< char >& p,
        ::xml_schema::flags f)
 {
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // userData
+    //
+    if (n.name () == "userData" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< userData_type > r (
+        userData_traits::create (i, f, this));
+
+      if (!this->userData_)
+      {
+        this->userData_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    break;
+  }
+
   while (p.more_attributes ())
   {
     const ::xercesc::DOMAttr& i (p.next_attribute ());
@@ -22548,6 +22824,7 @@ operator= (const line& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
+    this->userData_ = x.userData_;
     this->length_ = x.length_;
     this->space_ = x.space_;
     this->tOffset_ = x.tOffset_;
@@ -22561,6 +22838,155 @@ operator= (const line& x)
 
 line::
 ~line ()
+{
+}
+
+// line1
+//
+
+line1::
+line1 ()
+: ::xml_schema::type (),
+  userData_ (this),
+  length_ (this),
+  space_ (this),
+  tOffset_ (this),
+  sOffset_ (this),
+  rule_ (this),
+  width_ (this)
+{
+}
+
+line1::
+line1 (const line1& x,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c),
+  userData_ (x.userData_, f, this),
+  length_ (x.length_, f, this),
+  space_ (x.space_, f, this),
+  tOffset_ (x.tOffset_, f, this),
+  sOffset_ (x.sOffset_, f, this),
+  rule_ (x.rule_, f, this),
+  width_ (x.width_, f, this)
+{
+}
+
+line1::
+line1 (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
+: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  userData_ (this),
+  length_ (this),
+  space_ (this),
+  tOffset_ (this),
+  sOffset_ (this),
+  rule_ (this),
+  width_ (this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
+    this->parse (p, f);
+  }
+}
+
+void line1::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // userData
+    //
+    if (n.name () == "userData" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< userData_type > r (
+        userData_traits::create (i, f, this));
+
+      this->userData_.push_back (::std::move (r));
+      continue;
+    }
+
+    break;
+  }
+
+  while (p.more_attributes ())
+  {
+    const ::xercesc::DOMAttr& i (p.next_attribute ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    if (n.name () == "length" && n.namespace_ ().empty ())
+    {
+      this->length_.set (length_traits::create (i, f, this));
+      continue;
+    }
+
+    if (n.name () == "space" && n.namespace_ ().empty ())
+    {
+      this->space_.set (space_traits::create (i, f, this));
+      continue;
+    }
+
+    if (n.name () == "tOffset" && n.namespace_ ().empty ())
+    {
+      this->tOffset_.set (tOffset_traits::create (i, f, this));
+      continue;
+    }
+
+    if (n.name () == "sOffset" && n.namespace_ ().empty ())
+    {
+      this->sOffset_.set (sOffset_traits::create (i, f, this));
+      continue;
+    }
+
+    if (n.name () == "rule" && n.namespace_ ().empty ())
+    {
+      this->rule_.set (rule_traits::create (i, f, this));
+      continue;
+    }
+
+    if (n.name () == "width" && n.namespace_ ().empty ())
+    {
+      this->width_.set (width_traits::create (i, f, this));
+      continue;
+    }
+  }
+}
+
+line1* line1::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class line1 (*this, f, c);
+}
+
+line1& line1::
+operator= (const line1& x)
+{
+  if (this != &x)
+  {
+    static_cast< ::xml_schema::type& > (*this) = x;
+    this->userData_ = x.userData_;
+    this->length_ = x.length_;
+    this->space_ = x.space_;
+    this->tOffset_ = x.tOffset_;
+    this->sOffset_ = x.sOffset_;
+    this->rule_ = x.rule_;
+    this->width_ = x.width_;
+  }
+
+  return *this;
+}
+
+line1::
+~line1 ()
 {
 }
 
@@ -26214,19 +26640,19 @@ segment::
 {
 }
 
-// line1
+// line2
 //
 
-line1::
-line1 ()
+line2::
+line2 ()
 : ::xml_schema::type (),
   userData_ (this),
   include_ (this)
 {
 }
 
-line1::
-line1 (const line1& x,
+line2::
+line2 (const line2& x,
        ::xml_schema::flags f,
        ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
@@ -26235,8 +26661,8 @@ line1 (const line1& x,
 {
 }
 
-line1::
-line1 (const ::xercesc::DOMElement& e,
+line2::
+line2 (const ::xercesc::DOMElement& e,
        ::xml_schema::flags f,
        ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
@@ -26250,7 +26676,7 @@ line1 (const ::xercesc::DOMElement& e,
   }
 }
 
-void line1::
+void line2::
 parse (::xsd::cxx::xml::dom::parser< char >& p,
        ::xml_schema::flags f)
 {
@@ -26286,15 +26712,15 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   }
 }
 
-line1* line1::
+line2* line2::
 _clone (::xml_schema::flags f,
         ::xml_schema::container* c) const
 {
-  return new class line1 (*this, f, c);
+  return new class line2 (*this, f, c);
 }
 
-line1& line1::
-operator= (const line1& x)
+line2& line2::
+operator= (const line2& x)
 {
   if (this != &x)
   {
@@ -26306,8 +26732,8 @@ operator= (const line1& x)
   return *this;
 }
 
-line1::
-~line1 ()
+line2::
+~line2 ()
 {
 }
 
